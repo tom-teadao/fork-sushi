@@ -1,0 +1,48 @@
+{
+  "name": "@sushiswap/storybook",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "storybook build --docs",
+    "build-storybook": "storybook build --docs",
+    "chromatic": "chromatic --exit-zero-on-changes",
+    "clean": "rm -rf .turbo && rm -rf node_modules",
+    "dev": "storybook dev -p 6007",
+    "start": "serve storybook-static"
+  },
+  "dependencies": {
+    "@heroicons/react": "2.0.13",
+    "@sushiswap/tailwindcss-config": "workspace:*",
+    "@sushiswap/ui": "workspace:*",
+    "@tanstack/react-table": "8.9.1",
+    "class-variance-authority": "0.7.0",
+    "react": "catalog:react",
+    "react-dom": "catalog:react",
+    "sushi": "catalog:web3"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "8.4.7",
+    "@storybook/addon-actions": "8.4.7",
+    "@storybook/addon-designs": "8.0.4",
+    "@storybook/addon-docs": "8.4.7",
+    "@storybook/addon-essentials": "8.4.7",
+    "@storybook/addon-links": "8.4.7",
+    "@storybook/addon-mdx-gfm": "8.4.7",
+    "@storybook/addon-themes": "^8.4.7",
+    "@storybook/cli": "8.4.7",
+    "@storybook/react": "8.4.7",
+    "@storybook/react-vite": "8.4.7",
+    "@sushiswap/typescript-config": "workspace:*",
+    "@types/react": "catalog:react",
+    "@vitejs/plugin-react": "4.1.0",
+    "autoprefixer": "10.4.14",
+    "chromatic": "11.25.2",
+    "postcss": "8.4.23",
+    "serve": "14.2.0",
+    "storybook": "8.4.7",
+    "tailwindcss": "catalog:ui",
+    "typescript": "catalog:",
+    "vite": "4.3.9"
+  }
+}

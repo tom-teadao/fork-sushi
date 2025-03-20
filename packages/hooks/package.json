@@ -1,0 +1,62 @@
+{
+  "name": "@sushiswap/hooks",
+  "version": "3.0.0",
+  "private": true,
+  "description": "Sushi Hooks",
+  "keywords": ["sushi", "hooks", "react"],
+  "license": "MIT",
+  "author": "Matthew Lilley <hello@matthewLilley.com>",
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js",
+    "./*": ["./dist/*.js", "./dist/*/index.js"]
+  },
+  "typesVersions": {
+    "*": {
+      "*": ["src/*", "src/*/index"]
+    }
+  },
+  "files": ["dist/**"],
+  "scripts": {
+    "build": "tsc",
+    "check": "tsc --pretty --noEmit",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+    "dev": "tsc -w"
+  },
+  "dependencies": {
+    "copy-to-clipboard": "3.3.3",
+    "react-responsive": "9.0.0-beta.10",
+    "viem": "catalog:web3"
+  },
+  "devDependencies": {
+    "@tsconfig/node20": "catalog:tsconfig",
+    "@tsconfig/strictest": "catalog:tsconfig",
+    "@types/react": "catalog:react",
+    "@types/react-dom": "catalog:react",
+    "react": "catalog:react",
+    "react-dom": "catalog:react",
+    "sushi": "catalog:web3",
+    "tailwindcss": "catalog:ui",
+    "typescript": "catalog:"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*",
+    "sushi": "*",
+    "tailwindcss": "*"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": false
+    },
+    "react-dom": {
+      "optional": false
+    },
+    "sushi": {
+      "optional": true
+    },
+    "tailwindcss": {
+      "optional": true
+    }
+  }
+}

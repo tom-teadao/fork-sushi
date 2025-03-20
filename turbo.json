@@ -1,0 +1,79 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalEnv": ["NODE_ENV"],
+  "globalPassThroughEnv": ["DISPLAY", "NODE_OPTIONS", "CI", "COREPACK_HOME"],
+  "globalDependencies": [".npmrc", ".nvmrc", "tsconfig.json"],
+  "ui": "stream",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build", "generate"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "!test/**",
+        "!.eslintrc",
+        "!README.md",
+        ".env.production.local",
+        ".env.local",
+        ".env.production",
+        ".env"
+      ],
+      "outputs": [
+        "storybook-static/**",
+        ".next/**/*",
+        "!.next/cache/**",
+        ".vercel/**/*",
+        "dist/**/*"
+      ],
+      "env": ["EDGE_CONFIG"]
+    },
+    "clean": {
+      "cache": false
+    },
+    "check": {
+      "dependsOn": ["^build"],
+      "cache": false
+    },
+    "dev": {
+      "dependsOn": ["^build", "generate"],
+      "cache": false,
+      "persistent": true,
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        ".env.development.local",
+        ".env.local",
+        ".env.development",
+        ".env"
+      ]
+    },
+    "generate": {
+      "outputs": ["src/generated.ts"],
+      "cache": false
+    },
+    "lint": {
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "biome.json",
+        ".eslintignore",
+        ".eslint.js",
+        ".eslintrc.js"
+      ],
+      "dependsOn": ["^build"]
+    },
+    "start": {
+      "dependsOn": ["^build", "generate"],
+      "env": [
+        "API_BASE_URL",
+        "APP_ENV",
+        "DRPC_ID",
+        "EDGE_CONFIG",
+        "VERCEL_ENV"
+      ],
+      "cache": false,
+      "persistent": true
+    },
+    "test": {
+      "dependsOn": ["build"],
+      "outputs": ["coverage/**/*"]
+    }
+  }
+}
